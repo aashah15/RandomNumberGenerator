@@ -14,36 +14,22 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Select Range'),
+        title: const Text('Select Range'),
       ),
       body: Form(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Minimum',
-                ),
-                keyboardType: TextInputType.numberWithOptions(
-                  decimal: false,
-                  signed: true,
-                ),
+            children: const [
+              RangeSelectorTextFormField(
+                labelText: 'Minimum',
               ),
               SizedBox(
                 height: 12,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Maximum',
-                ),
-                keyboardType: TextInputType.numberWithOptions(
-                  decimal: false,
-                  signed: true,
-                ),
+              RangeSelectorTextFormField(
+                labelText: 'Maximum',
               ),
             ],
           ),
@@ -55,6 +41,29 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
           // TODO: Validate the Form
           // TODO: Navigate to the generator page
         },
+      ),
+    );
+  }
+}
+
+class RangeSelectorTextFormField extends StatelessWidget {
+  const RangeSelectorTextFormField({
+    Key? key,
+    required this.labelText,
+  }) : super(key: key);
+
+  final String labelText;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        border: const OutlineInputBorder(),
+        labelText: labelText,
+      ),
+      keyboardType: const TextInputType.numberWithOptions(
+        decimal: false,
+        signed: true,
       ),
     );
   }
