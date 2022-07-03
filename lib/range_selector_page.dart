@@ -10,6 +10,9 @@ class RangeSelectorPage extends StatefulWidget {
 }
 
 class _RangeSelectorPageState extends State<RangeSelectorPage> {
+  int _min = 0;
+  int _max = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,13 +25,13 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              RangeSelectorTextFormField(
+              RangeSeletorTextFormField(
                 labelText: 'Minimum',
               ),
               SizedBox(
                 height: 12,
               ),
-              RangeSelectorTextFormField(
+              RangeSeletorTextFormField(
                 labelText: 'Maximum',
               ),
             ],
@@ -46,8 +49,8 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
   }
 }
 
-class RangeSelectorTextFormField extends StatelessWidget {
-  const RangeSelectorTextFormField({
+class RangeSeletorTextFormField extends StatelessWidget {
+  const RangeSeletorTextFormField({
     Key? key,
     required this.labelText,
   }) : super(key: key);
@@ -58,7 +61,7 @@ class RangeSelectorTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+        border: OutlineInputBorder(),
         labelText: labelText,
       ),
       keyboardType: const TextInputType.numberWithOptions(
