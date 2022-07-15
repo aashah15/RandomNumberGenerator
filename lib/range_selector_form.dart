@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:random_number_generator/main.dart';
-import 'package:random_number_generator/randomizer_change_notifier.dart';
+import 'package:random_number_generator/randomizer_state_notifier.dart';
 
 typedef IntValueSetter = void Function(int value);
 
@@ -25,7 +25,7 @@ class RangeSelectorForm extends ConsumerWidget {
             RangeSeletorTextFormField(
               labelText: 'Minimum',
               intValueSetter: (value) =>
-                  ref.read(randomizerProvider).min = value,
+                  ref.read(randomizerProvider.notifier).setMin(value),
             ),
             const SizedBox(
               height: 12,
@@ -33,7 +33,7 @@ class RangeSelectorForm extends ConsumerWidget {
             RangeSeletorTextFormField(
               labelText: 'Maximum',
               intValueSetter: (value) =>
-                  ref.read(randomizerProvider).max = value,
+                  ref.read(randomizerProvider.notifier).setMax(value),
             ),
           ],
         ),
