@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:random_number_generator/main.dart';
-import 'package:random_number_generator/randomizer_change_notifier.dart';
 
 typedef IntValueSetter = void Function(int value);
 

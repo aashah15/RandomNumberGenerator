@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:random_number_generator/main.dart';
 
 class RandomizerPage extends ConsumerWidget {
-  RandomizerPage({
+  const RandomizerPage({
     Key? key,
   }) : super(key: key);
 
